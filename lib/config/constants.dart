@@ -11,7 +11,7 @@ class AppConstants {
   // ==================== API Configuration ====================
   /// 🔧 UPDATE THIS: Replace with your backend server IP or domain
   /// Example: http://192.168.1.100/teacher-eval/api
-  static const String API_BASE_URL = 'http://10.0.2.2/teacher-eval/api';
+  static const String API_BASE_URL = 'https://teacher-eval-api-production-3c7e.up.railway.app/teacher-eval/api';
 
   // Alternative configurations (uncomment the one you need):
   // static const String API_BASE_URL = 'http://10.0.2.2/teacher-eval/api'; // Android Emulator
