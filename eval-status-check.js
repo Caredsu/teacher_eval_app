@@ -9,7 +9,10 @@
 
   async function checkEvaluationStatus() {
     try {
-      const url = 'http://localhost/teacher-eval/index.php?request=api/evaluations/status';
+      // Use dynamic API base URL from api-config.js if available
+      const baseUrl = window.__apiBaseUrl || 'http://localhost/teacher-eval';
+      const url = baseUrl + '/api/evaluations/status';
+      
       const response = await fetch(url, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' },
