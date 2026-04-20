@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../models/teacher.dart';
 import '../services/api_service.dart';
+import '../widgets/introduction_modal.dart';
 import 'evaluation_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -21,6 +23,29 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
     futureTeachers = ApiService.getTeachers();
     futureDepartments = ApiService.getDepartments();
+    _showIntroductionIfFirstTime();
+  }
+
+  Future<void> _showIntroductionIfFirstTime() async {
+    final prefs = await SharedPreferences.getInstance();
+    final hasSeenIntro = prefs.getBool('hasSeenIntroduction') ?? false;
+
+    if (!hasSeenIntro && mounted) {
+      await showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          return IntroductionModal(
+            onClose: () async {
+              await prefs.setBool('hasSeenIntroduction', true);
+              if (mounted) {
+                Navigator.of(context).pop();
+              }
+            },
+          );
+        },
+      );
+    }
   }
 
   @override
