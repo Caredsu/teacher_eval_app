@@ -17,9 +17,8 @@ migrate_working_dir/
 .idea/
 
 # The .vscode folder contains launch configuration and tasks you configure in
-# VS Code which you may wish to be included in version control, so this line
-# is commented out by default.
-#.vscode/
+# VS Code which you may wish to be tracked by version control.
+.vscode/
 
 # Flutter/Dart/Pub related
 **/doc/api/
@@ -44,28 +43,19 @@ app.*.map.json
 **/ios/**/*.moved-aside
 **/ios/**/*.pbxuser
 **/ios/**/*.perspectivev3
-**/ios/**/*sync/
-**/ios/**/.sconsign.dblite
-**/ios/**/.tags*
-**/ios/**/.vagrant/
-**/ios/**/DerivedData/
-**/ios/**/Icon?
-**/ios/**/Icon?*two
-**/ios/**/Pods/
-**/ios/**/.symlinks/
 **/ios/**/*.xcconfig
-**/ios/**/*.xcworkspace
-**/ios/.generated
-**/ios/Flutter/Flutter.framework
-**/ios/Flutter/Flutter.podspec
-**/ios/Flutter/Generated.xcconfig
-**/ios/Flutter/ephemeral/
-**/ios/Flutter/app.flx
-**/ios/Flutter/app.zip
-**/ios/Flutter/flutter_assets/
-**/ios/Flutter/flutter_export_environment.sh
-**/ios/ServiceDefinitions.json
-**/ios/Runner/GeneratedPluginRegistrant.*
+**/ios/**/*.xcworkspace/xcuserdata/
+**/ios/**/*.xcworkspace/xcshareddata/
+**/ios/**/Flutter/Flutter.framework/*
+**/ios/**/Flutter/Flutter.podspec
 
-# Exceptions to above rules.
-!/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
+# Temporary files
+*.tmp
+*.bak
+
+# Environment files
+.env
+.env.local
+
+# Build outputs (but keep source files)
+*.map.json
